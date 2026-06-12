@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release (e.g. 1.1.0)"
+        required: true
+        type: string
+
+jobs:
+  release:
+    name: Create release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate version format
+        run: |
+          if ! echo "${{ github.event.inputs.version }}" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "Version must be in semver format (e.g. 1.2.3)"
+            exit 1
+          fi
+
+      - name: Bump version in marketplace.json
+        run: |
+          python3 -c "
+          import json
+          with open('.claude-plugin/marketplace.json') as f:
+              data = json.load(f)
+          data['version'] = '${{ github.event.inputs.version }}'
+          with open('.claude-plugin/marketplace.json', 'w') as f:
+              json.dump(data, f, indent=2)
+              f.write('\n')
+          print('Version bumped to ${{ github.event.inputs.version }}')
+          "
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .claude-plugin/marketplace.json
+          git commit -m "chore: release v${{ github.event.inputs.version }}"
+          git tag "v${{ github.event.inputs.version }}"
+          git push origin main --tags
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ github.event.inputs.version }}" \
+            --title "v${{ github.event.inputs.version }}" \
+            --notes "See [CHANGELOG](https://github.com/${{ github.repository }}/blob/main/docs/CHANGELOG.md) for details." \
+            --latest

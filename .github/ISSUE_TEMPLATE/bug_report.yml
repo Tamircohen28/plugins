@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a broken catalog entry or install failure
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for reporting a bug. Please fill out the fields below."
+
+  - type: input
+    id: plugin
+    attributes:
+      label: Which plugin?
+      description: "Plugin name (e.g. tamirs-superpowers)"
+      placeholder: tamirs-superpowers
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the error. Include the exact error message.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: input
+    id: claude-version
+    attributes:
+      label: Claude Code version
+      description: Output of `claude --version`
+    validations:
+      required: false
