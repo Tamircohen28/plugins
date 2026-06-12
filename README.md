@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="tamirs-plugins banner" width="600" />
+  <img src="assets/banner.svg" alt="tamirs-plugins banner" width="800" />
 </p>
 
 <h1 align="center">tamirs-plugins</h1>
