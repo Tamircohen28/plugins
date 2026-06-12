@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "tamirs-plugins",
+  "version": "1.0.0",
+  "description": "Tamir Cohen's unified Claude Code plugin marketplace — a single catalog pointing to all of his plugin repositories.",
+  "owner": {
+    "name": "Tamir Cohen",
+    "github": "Tamircohen28",
+    "url": "https://github.com/Tamircohen28"
+  },
+  "plugins": [
+    {
+      "name": "tamirs-superpowers",
+      "source": {
+        "source": "github",
+        "repo": "Tamircohen28/tamirs-superpowers",
+        "ref": "master"
+      },
+      "description": "15 bundled skills, smart worktree hooks, statusline, and MCP server stubs — plan, implement, review, debug, and audit code from one plugin."
+    },
+    {
+      "name": "jose-claudinho",
+      "source": {
+        "source": "github",
+        "repo": "Tamircohen28/jose-claudinho",
+        "ref": "main"
+      },
+      "description": "AI manager for Sport5 Fantasy World Cup 2026: market/team/league tools, weekly snapshots, and rules-aware transfer/captain/lineup recommendations."
+    },
+    {
+      "name": "headhunter",
+      "source": {
+        "source": "github",
+        "repo": "Tamircohen28/headhunter",
+        "ref": "main"
+      },
+      "description": "Job search CRM: pipeline, interviews, tasks, contacts, and Gmail/Calendar/Notion/Todoist integrations with an interview-prep research pipeline."
+    }
+  ]
+}
