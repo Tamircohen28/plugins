@@ -11,7 +11,7 @@ jobs:
     name: Validate marketplace.json
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Check valid JSON
         run: |
@@ -49,7 +49,7 @@ jobs:
     name: Lint markdown
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Check README exists and is non-empty
         run: |
           [[ -s README.md ]] && echo "README.md OK" || (echo "README.md missing or empty" && exit 1)
