@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="280" fill="url(#bg)" rx="12"/>
+
+  <!-- Top accent bar -->
+  <rect width="1200" height="3" fill="url(#accent)" rx="0"/>
+
+  <!-- Terminal dots -->
+  <circle cx="40" cy="40" r="7" fill="#ff5f57"/>
+  <circle cx="64" cy="40" r="7" fill="#febc2e"/>
+  <circle cx="88" cy="40" r="7" fill="#28c840"/>
+
+  <!-- Plugin icon grid (decorative) -->
+  <rect x="960" y="60" width="48" height="48" rx="10" fill="#7c3aed" opacity="0.2"/>
+  <rect x="1020" y="60" width="48" height="48" rx="10" fill="#3b82f6" opacity="0.2"/>
+  <rect x="1080" y="60" width="48" height="48" rx="10" fill="#10b981" opacity="0.2"/>
+  <rect x="960" y="120" width="48" height="48" rx="10" fill="#3b82f6" opacity="0.2"/>
+  <rect x="1020" y="120" width="48" height="48" rx="10" fill="#10b981" opacity="0.2"/>
+  <rect x="1080" y="120" width="48" height="48" rx="10" fill="#7c3aed" opacity="0.2"/>
+
+  <!-- Plugin icons text -->
+  <text x="984" y="92" font-family="monospace" font-size="20" fill="#7c3aed" opacity="0.7">⚡</text>
+  <text x="1044" y="92" font-family="monospace" font-size="20" fill="#3b82f6" opacity="0.7">⚽</text>
+  <text x="1104" y="92" font-family="monospace" font-size="20" fill="#10b981" opacity="0.7">🎯</text>
+  <text x="984" y="152" font-family="monospace" font-size="20" fill="#3b82f6" opacity="0.7">🔌</text>
+  <text x="1044" y="152" font-family="monospace" font-size="20" fill="#10b981" opacity="0.7">🛠</text>
+  <text x="1104" y="152" font-family="monospace" font-size="20" fill="#7c3aed" opacity="0.7">📦</text>
+
+  <!-- Prompt prefix -->
+  <text x="40" y="130" font-family="monospace" font-size="16" fill="#7c3aed" font-weight="bold">$</text>
+  <text x="60" y="130" font-family="monospace" font-size="16" fill="#6b7280">/plugin marketplace add</text>
+  <text x="296" y="130" font-family="monospace" font-size="16" fill="#e5e7eb"> Tamircohen28/plugins-catalog</text>
+
+  <!-- Main title -->
+  <text x="40" y="185" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="54" font-weight="700" fill="#f9fafb" letter-spacing="-1">tamirs-plugins</text>
+
+  <!-- Subtitle -->
+  <text x="42" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" fill="#9ca3af">Unified Claude Code plugin marketplace · superpowers · jose-claudinho · headhunter</text>
+
+  <!-- Bottom accent -->
+  <rect y="277" width="1200" height="3" fill="url(#accent)" rx="0"/>
+</svg>

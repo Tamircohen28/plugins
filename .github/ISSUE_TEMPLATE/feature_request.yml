@@ -1,0 +1,45 @@
+name: Feature request
+description: Request a new plugin be added to the catalog
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: "Want to see a plugin added? Fill this out."
+
+  - type: input
+    id: plugin-name
+    attributes:
+      label: Plugin name
+      description: "The name it should have in the catalog"
+      placeholder: my-awesome-plugin
+    validations:
+      required: true
+
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repo
+      description: "Full repo path (e.g. MyHandle/my-plugin)"
+      placeholder: MyHandle/my-plugin
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What does it do?
+      description: One sentence description for the marketplace entry.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Requirements
+      options:
+        - label: The repo is public
+          required: true
+        - label: The repo contains a `.claude-plugin/` directory with a valid `plugin.json`
+          required: true
+        - label: The plugin contains no Wix-internal references or credentials
+          required: true
