@@ -5,8 +5,8 @@
 <h1 align="center">tamirs-plugins</h1>
 
 <p align="center">
-  <a href="https://github.com/Tamircohen28/plugins-catalog/actions/workflows/ci.yml">
-    <img src="https://github.com/Tamircohen28/plugins-catalog/actions/workflows/ci.yml/badge.svg" alt="CI" />
+  <a href="https://github.com/Tamircohen28/plugins/actions/workflows/ci.yml">
+    <img src="https://github.com/Tamircohen28/plugins/actions/workflows/ci.yml/badge.svg" alt="CI" />
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" />
@@ -43,9 +43,13 @@
 
 ## Quick Start
 
-```bash
+### Option A — inside Claude Code (slash commands)
+
+Type these at the Claude Code prompt:
+
+```text
 # 1. Add this marketplace to Claude Code
-/plugin marketplace add Tamircohen28/plugins-catalog
+/plugin marketplace add Tamircohen28/plugins
 
 # 2. Install the plugins you want
 /plugin install tamirs-superpowers@tamirs-plugins
@@ -55,6 +59,29 @@
 # 3. Verify installation
 /doctor
 ```
+
+### Option B — from your shell (the `claude` CLI)
+
+Run these in your terminal without opening an interactive session — handy for
+scripting a new machine or a server setup:
+
+```bash
+# 1. Add this marketplace
+claude plugin marketplace add Tamircohen28/plugins
+
+# 2. Install the plugins you want (use plugin@marketplace to be explicit)
+claude plugin install tamirs-superpowers@tamirs-plugins
+claude plugin install jose-claudinho@tamirs-plugins
+claude plugin install headhunter@tamirs-plugins
+
+# 3. Confirm they're installed
+claude plugin list
+```
+
+> Installs are user-scoped by default. Use `--scope project` or `--scope local`
+> to install into a specific project, and `--config key=value` to set any
+> options a plugin declares. Restart any running Claude Code session (or run
+> `/doctor`) to pick up newly installed plugins.
 
 ## Documentation
 
