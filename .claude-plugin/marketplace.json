@@ -8,6 +8,7 @@
     "github": "Tamircohen28",
     "url": "https://github.com/Tamircohen28"
   },
+  "allowCrossMarketplaceDependenciesOn": ["superpowers-dev"],
   "plugins": [
     {
       "name": "tamirs-superpowers",
