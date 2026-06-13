@@ -1,35 +1,50 @@
-# Claude Code — plugins-catalog
+# CLAUDE.md — tamirs-plugins
 
-## Overview
+Claude Code guidance for contributors working on this plugin catalog.
 
-This is a **catalog-only** repo. It holds a single `.claude-plugin/marketplace.json` that lists Tamir's Claude Code plugins, each sourced from its own GitHub repository. There is no runnable code here — the only "build" is JSON validation.
+## What this repo is
 
-## Key files
+A **catalog only** — it holds a single `.claude-plugin/marketplace.json` that points to each plugin's own repository. No plugin source lives here.
+
+## Key file locations
 
 | Path | Purpose |
 |------|---------|
-| `.claude-plugin/marketplace.json` | The marketplace manifest — the only file that matters |
-| `docs/user/concepts.md` | Explains the marketplace model |
-| `.github/workflows/ci.yml` | Validates the JSON on every push |
+| `.claude-plugin/marketplace.json` | Marketplace manifest — lists all plugins with their repo pointers |
+| `README.md` | User-facing install instructions |
+| `CHANGELOG.md` | Version history |
 
-## Commands
+## Adding a plugin
 
-| Action | Command |
-|--------|---------|
-| Validate manifest | `python3 -c "import json; json.load(open('.claude-plugin/marketplace.json')); print('OK')"` |
-| Install all plugins | `/plugin marketplace add Tamircohen28/plugins-catalog` |
+1. Edit `.claude-plugin/marketplace.json` — add an entry to the `plugins` array:
+   ```json
+   {
+     "name": "my-plugin",
+     "source": { "source": "github", "repo": "Tamircohen28/my-plugin", "ref": "main" },
+     "description": "One-line description."
+   }
+   ```
+2. Add a row to the table in `README.md`
+3. Add a `CHANGELOG.md` entry under `[Unreleased]`
+4. Validate JSON: `python3 -m json.tool .claude-plugin/marketplace.json`
+
+## Updating a plugin description
+
+Edit `.claude-plugin/marketplace.json` directly — descriptions are informational only; they don't affect install behavior.
 
 ## Commit convention
 
 ```
-feat: add <plugin-name> to catalog
-fix: correct <plugin-name> source ref
-chore: bump <plugin-name> ref to <branch>
+<type>: <description>
+
+Co-Authored-By: Claude <noreply@anthropic.com>
 ```
+
+Types: `feat` (new plugin), `fix` (correction), `chore` (description update), `docs`
 
 ## Hard constraints
 
-- Never add runnable code to this repo — it is a catalog only
-- Never change `owner.github` away from `Tamircohen28`
-- Never add Wix-internal URLs, registries, or credentials
-- The `$schema` field in `marketplace.json` must always point to the official Claude Code schema
+- **Never add plugin source code here** — plugins live in their own repos
+- **Never change `"source": "github"`** — this is the only supported source type
+- **Always validate JSON** before committing — CI will reject invalid JSON
+- **Never commit secrets or tokens**
