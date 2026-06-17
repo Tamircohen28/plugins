@@ -1,0 +1,19 @@
+{
+  "name": "tamirs-plugins",
+  "owner": {
+    "name": "Tamir Cohen",
+    "email": "tamircohen2468@gmail.com"
+  },
+  "description": "Tamir Cohen's personal Claude Code plugin marketplace",
+  "plugins": [
+    {
+      "name": "tamirs-superpowers",
+      "source": {
+        "source": "github",
+        "repo": "Tamircohen28/tamirs-superpowers"
+      },
+      "description": "17 bundled skills, smart worktree hooks, statusline, and MCP server stubs — plan, implement, review, debug, and audit code from one plugin.",
+      "version": "1.2.1"
+    }
+  ]
+}
