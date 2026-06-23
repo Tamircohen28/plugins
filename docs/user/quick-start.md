@@ -1,61 +1,95 @@
 # Quick Start
 
-Get all plugins installed in under 5 minutes.
+Get plugins installed in under 5 minutes. Pick your platform below.
 
-## Prerequisites
+## Claude Code
 
-- Claude Code installed (`npm install -g @anthropic-ai/claude-code` or via the desktop app)
-- Authenticated: run `claude` and complete the login flow
+### Prerequisites
 
-## Step 1 — Add the marketplace
+- Claude Code installed and authenticated
+- `claude` CLI accessible in your terminal
+
+### Install
 
 ```bash
-/plugin marketplace add Tamircohen28/plugins-catalog
+# 1. Add the marketplace
+claude plugin marketplace add Tamircohen28/plugins
+
+# 2. Install plugins
+claude plugin install tamirs-superpowers@tamirs-plugins
+claude plugin install jose-claudinho@tamirs-plugins
+claude plugin install headhunter@tamirs-plugins
+
+# 3. Verify
+claude plugin list
 ```
 
-You should see: `Marketplace "tamirs-plugins" added.`
+Inside Claude Code, use slash commands instead:
 
-## Step 2 — Install plugins
-
-Install whichever plugins you need:
-
-```bash
-# Dev workflow superpowers (recommended for all users)
+```text
+/plugin marketplace add Tamircohen28/plugins
 /plugin install tamirs-superpowers@tamirs-plugins
-
-# Fantasy World Cup AI manager
-/plugin install jose-claudinho@tamirs-plugins
-
-# Job-search CRM
-/plugin install headhunter@tamirs-plugins
-```
-
-## Step 3 — Verify
-
-```bash
 /doctor
 ```
 
-All installed plugins should appear as healthy. If any show errors, see [Troubleshooting](troubleshooting.md).
+Open a **new** session after installing to load skills.
 
-## Step 4 — Use a skill
+---
 
-Open a new Claude Code session in any project and try:
+## Codex
+
+### Prerequisites
+
+- Codex app or CLI installed and signed in
+
+### Install
 
 ```bash
-/tamirs-superpowers:start-dev
+# 1. Add the marketplace
+codex plugin marketplace add Tamircohen28/plugins --ref main --sparse .agents/plugins
+
+# 2. Install plugins
+codex plugin install tamirs-superpowers --source plugins
+codex plugin install jose-claudinho --source plugins
+codex plugin install headhunter --source plugins
+
+# 3. Verify
+codex plugin list
 ```
 
-or list available skills:
+In the Codex app: **Settings → Plugins → + Add More…** → paste `https://github.com/Tamircohen28/plugins`.
+
+---
+
+## Cursor
+
+### Team marketplace (Teams / Enterprise)
+
+1. Admin: **Dashboard → Settings → Plugins → Import Marketplace**
+2. Repository: `https://github.com/Tamircohen28/plugins`
+3. Developer: open the marketplace panel in Cursor and install plugins
+
+### Local development (any plan)
 
 ```bash
-/help
+git clone https://github.com/Tamircohen28/tamirs-superpowers
+ln -s "$(pwd)/tamirs-superpowers" ~/.cursor/plugins/local/tamirs-superpowers
 ```
+
+Restart Cursor or run **Developer: Reload Window**.
+
+---
 
 ## Updating plugins
 
-Plugins are fetched from their source branch on install. To update:
+Plugins are fetched from their pinned branch on install. To refresh:
 
 ```bash
-/plugin update tamirs-superpowers
+# Claude Code
+claude plugin update tamirs-superpowers
+
+# Codex
+codex plugin marketplace upgrade plugins
 ```
+
+See [Troubleshooting](troubleshooting.md) if a plugin installs but skills do not appear.

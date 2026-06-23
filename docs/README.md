@@ -4,8 +4,8 @@
 
 | Document | Audience | What it covers |
 |----------|----------|----------------|
-| [Concepts](user/concepts.md) | New users | What a Claude Code marketplace is and how this catalog works |
-| [Quick Start](user/quick-start.md) | New users | Install all plugins in under 5 minutes |
+| [Concepts](user/concepts.md) | New users | Multi-platform marketplaces and how this catalog works |
+| [Quick Start](user/quick-start.md) | New users | Install plugins on Claude Code, Codex, and Cursor |
 | [Troubleshooting](user/troubleshooting.md) | All users | Common install and runtime failures |
 
 ## Project docs

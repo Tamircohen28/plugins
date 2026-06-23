@@ -12,10 +12,12 @@
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" />
   </a>
   <img src="https://img.shields.io/badge/Claude%20Code-Plugin%20Catalog-blueviolet" alt="Claude Code Plugin Catalog" />
+  <img src="https://img.shields.io/badge/Cursor-Team%20Marketplace-000000" alt="Cursor Team Marketplace" />
+  <img src="https://img.shields.io/badge/Codex-Plugin%20Catalog-412991" alt="Codex Plugin Catalog" />
 </p>
 
 <p align="center">
-  A unified <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code</a> plugin marketplace for <a href="https://github.com/Tamircohen28">@Tamircohen28</a> — one <code>marketplace add</code> command installs everything.
+  A unified multi-platform plugin catalog for <a href="https://github.com/Tamircohen28">@Tamircohen28</a> — one marketplace install for <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code</a>, <a href="https://cursor.com/docs/plugins">Cursor</a>, and <a href="https://developers.openai.com/codex/plugins">Codex</a>.
 </p>
 
 ---
@@ -23,9 +25,10 @@
 ## Features
 
 - **Single install point** — add one marketplace to get all plugins, no per-repo configuration
-- **Catalog only** — this repo holds only `marketplace.json`; plugin source lives in each plugin's own repo
+- **Catalog only** — this repo holds marketplace manifests only; plugin source lives in each plugin's own repo
+- **Multi-platform** — Claude, Cursor, and Codex manifests generated from one canonical source
 - **Auto-updated** — each plugin entry pins a branch so you always get the latest compatible version
-- **Schema-validated** — CI validates the manifest on every push against the official Claude Code marketplace schema
+- **Schema-validated** — CI regenerates and validates all manifests on every push
 - **Three production plugins** — superpowers, fantasy football AI, and a job-search CRM ready to install
 
 ## Plugins
@@ -36,40 +39,17 @@
 | `jose-claudinho` | [Tamircohen28/jose-claudinho](https://github.com/Tamircohen28/jose-claudinho) | AI manager for Sport5 Fantasy World Cup 2026. |
 | `headhunter` | [Tamircohen28/headhunter](https://github.com/Tamircohen28/headhunter) | Job-search CRM with Gmail/Calendar/Notion/Todoist integrations. |
 
-## Prerequisites
-
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and authenticated
-- `claude` CLI accessible in your terminal
-
 ## Quick Start
 
-### Option A — inside Claude Code (slash commands)
+### Claude Code
 
-Type these at the Claude Code prompt:
-
-```text
-# 1. Add this marketplace to Claude Code
-/plugin marketplace add Tamircohen28/plugins
-
-# 2. Install the plugins you want
-/plugin install tamirs-superpowers@tamirs-plugins
-/plugin install jose-claudinho@tamirs-plugins
-/plugin install headhunter@tamirs-plugins
-
-# 3. Verify installation
-/doctor
-```
-
-### Option B — from your shell (the `claude` CLI)
-
-Run these in your terminal without opening an interactive session — handy for
-scripting a new machine or a server setup:
+Inside Claude Code or from the `claude` CLI:
 
 ```bash
 # 1. Add this marketplace
 claude plugin marketplace add Tamircohen28/plugins
 
-# 2. Install the plugins you want (use plugin@marketplace to be explicit)
+# 2. Install the plugins you want
 claude plugin install tamirs-superpowers@tamirs-plugins
 claude plugin install jose-claudinho@tamirs-plugins
 claude plugin install headhunter@tamirs-plugins
@@ -78,10 +58,53 @@ claude plugin install headhunter@tamirs-plugins
 claude plugin list
 ```
 
-> Installs are user-scoped by default. Use `--scope project` or `--scope local`
-> to install into a specific project, and `--config key=value` to set any
-> options a plugin declares. Restart any running Claude Code session (or run
-> `/doctor`) to pick up newly installed plugins.
+Slash-command equivalent inside Claude Code:
+
+```text
+/plugin marketplace add Tamircohen28/plugins
+/plugin install tamirs-superpowers@tamirs-plugins
+/doctor
+```
+
+### Codex
+
+```bash
+# 1. Add this marketplace (sparse checkout keeps the clone small)
+codex plugin marketplace add Tamircohen28/plugins --ref main --sparse .agents/plugins
+
+# 2. Install plugins
+codex plugin install tamirs-superpowers --source plugins
+codex plugin install jose-claudinho --source plugins
+codex plugin install headhunter --source plugins
+
+# 3. List installed plugins
+codex plugin list
+```
+
+In the Codex app: **Settings → Plugins → + Add More…** and paste `https://github.com/Tamircohen28/plugins`.
+
+### Cursor — team marketplace (Teams / Enterprise)
+
+Org admins import this repo as a private team marketplace:
+
+1. **Dashboard → Settings → Plugins → Import Marketplace**
+2. Repository: `https://github.com/Tamircohen28/plugins`
+3. Save and assign distribution groups
+
+Developers install optional plugins from the in-editor marketplace panel.
+
+### Cursor — local development (any user)
+
+Test a plugin locally before it is published or indexed remotely:
+
+```bash
+git clone https://github.com/Tamircohen28/tamirs-superpowers
+ln -s "$(pwd)/tamirs-superpowers" ~/.cursor/plugins/local/tamirs-superpowers
+```
+
+Restart Cursor or run **Developer: Reload Window**.
+
+> Listed plugin repos must ship `.cursor-plugin/plugin.json` and `.codex-plugin/plugin.json` for Cursor and Codex installs to succeed. See [Troubleshooting](docs/user/troubleshooting.md).
 
 ## Documentation
 
@@ -89,7 +112,7 @@ Full user guide, concepts, and troubleshooting are in [`docs/`](docs/README.md).
 
 ## Contributing
 
-See [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) — adding a new plugin is a one-file change.
+See [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) — edit the Claude manifest, run `make generate`, and open a PR.
 
 ## License
 

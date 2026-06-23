@@ -3,7 +3,7 @@
 -
 
 ## Test plan
-- [ ] `python3 -c "import json; json.load(open('.claude-plugin/marketplace.json'))"` passes
+- [ ] `make validate` passes
 - [ ] CI checks pass
 
 ## Documentation
