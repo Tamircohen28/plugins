@@ -19,29 +19,32 @@ jobs:
 
       - name: Validate version format
         run: |
-          if ! echo "${{ github.event.inputs.version }}" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+          if ! echo "${{ github.event.inputs.version }}" | grep -qE '''^[0-9]+\.[0-9]+\.[0-9]+$'''; then
             echo "Version must be in semver format (e.g. 1.2.3)"
             exit 1
           fi
 
-      - name: Bump version in marketplace.json
+      - name: Bump version and regenerate manifests
         run: |
           python3 -c "
           import json
-          with open('.claude-plugin/marketplace.json') as f:
+          with open('''.claude-plugin/marketplace.json''') as f:
               data = json.load(f)
-          data['version'] = '${{ github.event.inputs.version }}'
-          with open('.claude-plugin/marketplace.json', 'w') as f:
+          data['''version'''] = '''${{ github.event.inputs.version }}'''
+          with open('''.claude-plugin/marketplace.json''', '''w''') as f:
               json.dump(data, f, indent=2)
-              f.write('\n')
-          print('Version bumped to ${{ github.event.inputs.version }}')
+              f.write('''
+''')
+          print('''Version bumped to ${{ github.event.inputs.version }}''')
           "
+          python3 scripts/generate-marketplaces.py
+          python3 scripts/validate-marketplaces.py
 
       - name: Commit version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .claude-plugin/marketplace.json
+          git add .claude-plugin/marketplace.json .agents/plugins/marketplace.json .cursor-plugin/marketplace.json
           git commit -m "chore: release v${{ github.event.inputs.version }}"
           git tag "v${{ github.event.inputs.version }}"
           git push origin main --tags
@@ -50,7 +53,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "v${{ github.event.inputs.version }}" \
-            --title "v${{ github.event.inputs.version }}" \
-            --notes "See [CHANGELOG](https://github.com/${{ github.repository }}/blob/main/docs/CHANGELOG.md) for details." \
-            --latest
+          gh release create "v${{ github.event.inputs.version }}"             --title "v${{ github.event.inputs.version }}"             --notes "See [CHANGELOG](https://github.com/${{ github.repository }}/blob/main/docs/CHANGELOG.md) for details."             --latest

@@ -2,7 +2,7 @@
 
 ## Adding a plugin to the catalog
 
-This repo is a catalog — all you need to do is add one entry to `.claude-plugin/marketplace.json`.
+This repo is a catalog. Edit the canonical Claude manifest, then regenerate the Codex and Cursor manifests.
 
 ### Steps
 
@@ -22,18 +22,22 @@ This repo is a catalog — all you need to do is add one entry to `.claude-plugi
 }
 ```
 
-3. Validate the JSON locally:
+3. Regenerate and validate:
 
 ```bash
-python3 -c "import json; json.load(open('.claude-plugin/marketplace.json')); print('OK')"
+make validate
 ```
 
-4. Open a pull request. CI will validate the schema automatically.
+4. Add a row to the plugin table in `README.md` and a `CHANGELOG.md` entry under `[Unreleased]`.
+
+5. Open a pull request. CI will regenerate manifests and fail if anything is out of sync.
 
 ## Requirements for listed plugins
 
 - Plugin must have a public GitHub repo
 - Plugin must contain a `.claude-plugin/` directory with a valid `plugin.json`
+- Plugin must contain a `.cursor-plugin/plugin.json` for Cursor installs
+- Plugin must contain a `.codex-plugin/plugin.json` for Codex installs
 - Plugin must not contain Wix-internal references, credentials, or proprietary IP
 - Description must be one sentence, 10–100 characters
 

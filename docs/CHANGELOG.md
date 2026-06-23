@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Codex and Cursor marketplace manifests generated from the canonical Claude manifest
+- Generator and validation scripts with `make validate` CI gate
+
 ## [1.0.0] - 2026-06-13
 
 ### Added
