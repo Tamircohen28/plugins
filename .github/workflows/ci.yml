@@ -8,7 +8,7 @@ on:
 
 jobs:
   validate:
-    name: Validate marketplace manifests
+    name: Validate marketplace.json
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -19,7 +19,8 @@ jobs:
       - name: Secret scan
         run: |
           echo "Scanning for accidental secrets..."
-          if grep -rE '''(ghp_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{48}|AKIA[A-Z0-9]{16}|-----BEGIN (RSA|EC|OPENSSH) PRIVATE KEY)'''             --include="*.json" --include="*.md" --include="*.yml" .; then
+          if grep -rE '(ghp_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{48}|AKIA[A-Z0-9]{16}|-----BEGIN (RSA|EC|OPENSSH) PRIVATE KEY)' \
+            --include="*.json" --include="*.md" --include="*.yml" .; then
             echo "Potential secret found — review before merging"
             exit 1
           fi
