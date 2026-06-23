@@ -77,6 +77,14 @@ def validate_cursor(data: dict, errors: list[str]) -> None:
         source = entry.get("source")
         if not isinstance(source, str) or not source.strip():
             errors.append(f"Cursor plugin {name!r} must have non-empty string source")
+            continue
+        if not (
+            source.startswith("./")
+            or source.startswith("https://github.com/")
+        ):
+            errors.append(
+                f"Cursor plugin {name!r} source must be a relative path or GitHub URL: {source!r}"
+            )
         if not CURSOR_NAME_PATTERN.fullmatch(name):
             errors.append(f"Cursor plugin name invalid: {name!r}")
 

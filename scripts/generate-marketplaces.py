@@ -83,6 +83,8 @@ def build_cursor_manifest(claude: dict) -> dict:
     if owner.get("email"):
         cursor_owner["email"] = owner["email"]
 
+    # Cursor schema allows relative paths or remote GitHub URLs. This catalog
+    # repo is pointers-only (no vendored plugin folders), so entries use URLs.
     plugins = []
     for entry in claude["plugins"]:
         repo, _ref = parse_github_source(entry["source"])
