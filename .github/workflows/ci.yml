@@ -11,7 +11,7 @@ jobs:
     name: Validate marketplace manifests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Regenerate and verify platform manifests
         run: make validate
@@ -29,7 +29,7 @@ jobs:
     name: Lint markdown
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Check README exists and is non-empty
         run: |
           [[ -s README.md ]] && echo "README.md OK" || (echo "README.md missing or empty" && exit 1)
