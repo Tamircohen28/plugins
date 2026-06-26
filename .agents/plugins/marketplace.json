@@ -50,7 +50,7 @@
       "name": "production-master",
       "source": {
         "source": "url",
-        "url": "https://github.com/TamirCohen28/production-master-intel.git",
+        "url": "https://github.com/ProductionMasterAI/production-master-intel.git",
         "ref": "main"
       },
       "policy": {
