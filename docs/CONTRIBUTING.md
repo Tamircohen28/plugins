@@ -22,10 +22,10 @@ This repo is a catalog. Edit the canonical Claude manifest, then regenerate the 
 }
 ```
 
-3. Regenerate and validate:
+3. Regenerate the Codex and Cursor manifests, then validate all three:
 
 ```bash
-make validate
+make generate && make validate
 ```
 
 4. Add a row to the plugin table in `README.md` and a `CHANGELOG.md` entry under `[Unreleased]`.

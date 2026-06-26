@@ -8,6 +8,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [1.1.0] — 2026-06-26
+
 ### Added
 - Codex marketplace manifest at `.agents/plugins/marketplace.json`
 - Cursor team marketplace manifest at `.cursor-plugin/marketplace.json`
@@ -18,6 +22,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - CI validates all three marketplace manifests and fails on generator drift
 - Release workflow regenerates Codex and Cursor manifests when bumping version
+- Banner SVG: correct repo name (`plugins-catalog` → `plugins`) and replace hardcoded plugin list with platform description
 
 ---
 
