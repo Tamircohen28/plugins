@@ -25,7 +25,7 @@
     },
     {
       "name": "production-master",
-      "source": "https://github.com/TamirCohen28/production-master-intel",
+      "source": "https://github.com/ProductionMasterAI/production-master-intel",
       "description": "Autonomous production investigation plugin for Claude Code — 19 agents, 39 MCP skills, 10-step pipeline. Customize for your infrastructure."
     }
   ]
