@@ -1,7 +1,7 @@
 {
   "name": "tamirs-plugins",
   "interface": {
-    "displayName": "Tamir Cohen's unified Claude Code plugin marketplace — a single catalog pointing to all of his plugin repositories."
+    "displayName": "Tamir Cohen's unified Claude Code plugin marketplace \u2014 a single catalog pointing to all of his plugin repositories."
   },
   "plugins": [
     {
@@ -16,7 +16,7 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Developer Tools",
-      "description": "17 bundled skills, smart worktree hooks, statusline, and MCP server stubs — plan, implement, review, debug, and audit code from one plugin."
+      "description": "17 bundled skills, smart worktree hooks, statusline, and MCP server stubs \u2014 plan, implement, review, debug, and audit code from one plugin."
     },
     {
       "name": "jose-claudinho",
@@ -50,7 +50,7 @@
       "name": "production-master",
       "source": {
         "source": "url",
-        "url": "https://github.com/TamirCohen28/production-master-intel.git",
+        "url": "https://github.com/ProductionMasterAI/production-master-intel.git",
         "ref": "main"
       },
       "policy": {
@@ -58,7 +58,7 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Developer Tools",
-      "description": "Autonomous production investigation plugin for Claude Code — 19 agents, 39 MCP skills, 10-step pipeline. Customize for your infrastructure."
+      "description": "Autonomous production investigation plugin for Claude Code \u2014 19 agents, 39 MCP skills, 10-step pipeline. Customize for your infrastructure."
     }
   ]
 }
