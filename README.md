@@ -29,7 +29,7 @@
 - **Multi-platform** — Claude, Cursor, and Codex manifests generated from one canonical source
 - **Auto-updated** — each plugin entry pins a branch so you always get the latest compatible version
 - **Schema-validated** — CI regenerates and validates all manifests on every push
-- **Three production plugins** — superpowers, fantasy football AI, and a job-search CRM ready to install
+- **Production plugins** — browse the catalog below to see all available plugins, ready to install
 
 ## Plugins
 

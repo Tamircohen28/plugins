@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-06-26
+
 ### Added
 - Codex and Cursor marketplace manifests generated from the canonical Claude manifest
-- Generator and validation scripts with `make validate` CI gate
+- Generator and validation scripts with `make generate` and `make validate` targets
+
+### Changed
+- Banner SVG: corrected repo name (`plugins-catalog` → `plugins`) and replaced hardcoded plugin list with platform description (`Claude Code · Cursor · Codex`)
 
 ## [1.0.0] - 2026-06-13
 

@@ -65,6 +65,6 @@ When you install a plugin from this catalog, your assistant fetches it directly 
 
 | Plugin | What it does |
 |--------|-------------|
-| `tamirs-superpowers` | Core dev workflow — skills for planning, debugging, code review, and git worktrees |
+| `tamirs-superpowers` | 17 bundled skills, smart worktree hooks, statusline, and MCP server stubs — plan, implement, review, debug, and audit code from one plugin |
 | `jose-claudinho` | Fantasy World Cup AI — lineup/transfer/captain recommendations via Sport5 API |
 | `headhunter` | Job search CRM — pipeline, interview prep, Gmail/Notion/Todoist integrations |
