@@ -4,14 +4,14 @@
     "name": "Tamir Cohen"
   },
   "metadata": {
-    "description": "Tamir Cohen's unified Claude Code plugin marketplace \u2014 a single catalog pointing to all of his plugin repositories.",
+    "description": "Tamir Cohen's unified Claude Code plugin marketplace — a single catalog pointing to all of his plugin repositories.",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "tamirs-superpowers",
       "source": "https://github.com/Tamircohen28/tamirs-superpowers",
-      "description": "17 bundled skills, smart worktree hooks, statusline, and MCP server stubs \u2014 plan, implement, review, debug, and audit code from one plugin."
+      "description": "17 bundled skills, smart worktree hooks, statusline, and MCP server stubs — plan, implement, review, debug, and audit code from one plugin."
     },
     {
       "name": "jose-claudinho",
@@ -22,6 +22,11 @@
       "name": "headhunter",
       "source": "https://github.com/Tamircohen28/headhunter",
       "description": "Job search CRM: pipeline, interviews, tasks, contacts, and Gmail/Calendar/Notion/Todoist integrations with an interview-prep research pipeline."
+    },
+    {
+      "name": "production-master",
+      "source": "https://github.com/TamirCohen28/production-master-intel",
+      "description": "Autonomous production investigation plugin for Claude Code — 19 agents, 39 MCP skills, 10-step pipeline. Customize for your infrastructure."
     }
   ]
 }
