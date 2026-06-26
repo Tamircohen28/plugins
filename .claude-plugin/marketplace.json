@@ -8,7 +8,9 @@
     "github": "Tamircohen28",
     "url": "https://github.com/Tamircohen28"
   },
-  "allowCrossMarketplaceDependenciesOn": ["superpowers-dev"],
+  "allowCrossMarketplaceDependenciesOn": [
+    "superpowers-dev"
+  ],
   "plugins": [
     {
       "name": "tamirs-superpowers",
@@ -36,6 +38,15 @@
         "ref": "main"
       },
       "description": "Job search CRM: pipeline, interviews, tasks, contacts, and Gmail/Calendar/Notion/Todoist integrations with an interview-prep research pipeline."
+    },
+    {
+      "name": "production-master",
+      "source": {
+        "source": "github",
+        "repo": "TamirCohen28/production-master-intel",
+        "ref": "main"
+      },
+      "description": "Autonomous production investigation plugin for Claude Code — 19 agents, 39 MCP skills, 10-step pipeline. Customize for your infrastructure."
     }
   ]
 }
